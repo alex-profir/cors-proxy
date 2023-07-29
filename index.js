@@ -7,8 +7,7 @@ dotenv.config();
 const app = express()
 app.use(cors())
 app.use(createProxyMiddleware({
-    router: (req) => new URL(req.path.substring(1)),
-    pathRewrite: (path, req) => (new URL(req.path.substring(1))).pathname,
+    target: "https://data.nasdaq.com/api/v3",
     changeOrigin: true,
     logger: console
 }))
